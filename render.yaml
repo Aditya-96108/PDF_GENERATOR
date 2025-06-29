@@ -3,7 +3,6 @@
 # Purpose: Defines the service settings for hosting on Render, including the Docker environment
 # and environment variables for the OpenAI API key.
 # This ensures the application is deployed with the correct configuration for production.
-
 services:
   - type: web
     name: ai-pdf-generator
@@ -17,4 +16,4 @@ services:
       - key: PYTHON_VERSION
         value: 3.9
       - key: OPENAI_API_KEY
-        sync: false  # Set this in Render's dashboard manually for security
+        sync: false  # Set this securely in the Render dashboard
