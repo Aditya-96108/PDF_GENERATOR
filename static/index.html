@@ -1,0 +1,39 @@
+<!-- index.html: Modern frontend for Finlive Right AI PDF Generator -->
+<!-- Purpose: Provides a sleek, AI startup-inspired UI for inputting a keyword, number of pages, -->
+<!-- and corporate details to generate a professional PDF. Includes a theme toggle and live loader -->
+<!-- with progress bar. Fully responsive for mobile, tablet, and desktop. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finlive Right AI PDF Generator</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <div class="container">
+        <div class="header">
+            <h1>Finlive Right AI PDF Generator</h1>
+            <button id="themeToggle" class="theme-toggle">🌙 Dark Mode</button>
+        </div>
+        <p>Create professional financial reports powered by AI, tailored for your needs.</p>
+        <div class="form-group">
+            <input type="text" id="wordInput" placeholder="Keyword (e.g., Investment)" required>
+            <input type="number" id="pagesInput" placeholder="Pages (1-5)" min="1" max="5" required>
+            <input type="text" id="companyInput" placeholder="Company (e.g., Finlive Right)" value="Finlive Right" required>
+            <input type="text" id="titleInput" placeholder="Document Title" required>
+            <input type="text" id="authorInput" placeholder="Author Name" required>
+            <input type="text" id="subjectInput" placeholder="Subject (e.g., Financial Strategy)" required>
+            <button onclick="generatePDF()" class="submit-btn">Generate PDF</button>
+        </div>
+        <div id="loader" class="loader" style="display: none;">
+            <div class="loader-bar"></div>
+            <p id="loaderText">Collecting Information...</p>
+        </div>
+        <p id="error" class="error"></p>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

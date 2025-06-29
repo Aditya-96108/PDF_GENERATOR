@@ -1,0 +1,20 @@
+# Updated for Render deployment
+# render.yaml: Configures the Render deployment for the FastAPI application.
+# Purpose: Defines the service settings for hosting on Render, including the Docker environment
+# and environment variables for the OpenAI API key.
+# This ensures the application is deployed with the correct configuration for production.
+
+services:
+  - type: web
+    name: ai-pdf-generator
+    env: docker
+    region: oregon
+    plan: free
+    branch: main
+    dockerCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9
+      - key: OPENAI_API_KEY
+        sync: false  # Set this in Render's dashboard manually for security
